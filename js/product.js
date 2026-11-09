@@ -21,9 +21,31 @@ if (!product) {
   // Название и изображение
   document.querySelector("#product-title").textContent = product.title;
 
+  /*
+    Главное изображение товара.
+    Собираем srcset из подготовленных размеров и указываем sizes:
+    на широких экранах картинка занимает около 55vw, на планшетах
+    и телефонах — всю ширину блока.
+  */
   const image = document.querySelector("#product-image");
+
+  if (product.imageSet) {
+    const { path, ext, widths } = product.imageSet;
+
+    image.srcset = widths
+      .map((w) => `${path}-${w}.${ext} ${w}w`)
+      .join(", ");
+
+    image.sizes = "(max-width: 991px) 92vw, 50vw";
+  }
+
   image.src = product.image;
   image.alt = product.imageAlt;
+
+  if (product.imageWidth) {
+    image.width = product.imageWidth;
+    image.height = product.imageHeight;
+  }
 
   // Описание и цена
   document.querySelector("#product-short-description").textContent =
@@ -103,7 +125,11 @@ if (product) {
         id: productId,
         title: product.title,
         price: product.price,
-        image: product.image,
+        /*
+          В корзине картинка показывается маленькой, поэтому кладём
+          уменьшенный вариант, а не крупный файл основного изображения.
+        */
+        image: product.imageThumb || product.image,
         quantity: 1,
       });
     }

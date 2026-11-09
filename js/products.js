@@ -1,8 +1,29 @@
+/*
+  Данные товаров.
+
+  Поля изображений:
+    image       — основной файл, используется как src (средний размер)
+    imageSet    — параметры набора для srcset: папка, имя и список ширин
+    imageThumb  — уменьшенный вариант для миниатюры в корзине
+    imageWidth  — ширина исходного изображения в пикселях
+    imageHeight — высота исходного изображения в пикселях
+                  (нужны, чтобы браузер заранее знал пропорции
+                   и страница не «прыгала» при загрузке)
+*/
+
 const products = {
   "porsche-carrera-gt": {
     title: "Porsche Carrera GT",
     price: 2000,
-    image: "images/Carrera GT.webp",
+    image: "images/products/carrera-gt-800.webp",
+    imageSet: {
+      path: "images/products/carrera-gt",
+      ext: "webp",
+      widths: [320, 400, 640, 800, 1000],
+    },
+    imageThumb: "images/products/carrera-gt-400.webp",
+    imageWidth: 1000,
+    imageHeight: 1246,
     imageAlt: "Жёлтая модель Porsche Carrera GT Hot Wheels",
     badge: "Хит",
     available: true,
@@ -22,7 +43,15 @@ const products = {
   "porsche-917kh-gulf": {
     title: "Porsche 917KH",
     price: 1500,
-    image: "images/917KH.webp",
+    image: "images/products/917kh-800.webp",
+    imageSet: {
+      path: "images/products/917kh",
+      ext: "webp",
+      widths: [320, 400, 640, 800, 1000],
+    },
+    imageThumb: "images/products/917kh-400.webp",
+    imageWidth: 1000,
+    imageHeight: 1180,
     imageAlt:
       "Модель Porsche 917KH Hot Wheels в гоночной ливрее Gulf",
     badge: "Лимитка",
@@ -43,7 +72,15 @@ const products = {
   "porsche-930-rwb-silhouettes": {
     title: "RWB Porsche 930",
     price: 1000,
-    image: "images/RWB 930.webp",
+    image: "images/products/rwb-930-800.webp",
+    imageSet: {
+      path: "images/products/rwb-930",
+      ext: "webp",
+      widths: [320, 400, 640, 800, 1000],
+    },
+    imageThumb: "images/products/rwb-930-400.webp",
+    imageWidth: 1000,
+    imageHeight: 1140,
     imageAlt: "Белая модель RWB Porsche 930 Hot Wheels",
     badge: "Новинка",
     available: true,

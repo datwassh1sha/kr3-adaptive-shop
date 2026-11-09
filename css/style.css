@@ -410,11 +410,17 @@ footer p {
   border-radius: var(--radius-sm);
 }
 
+/*
+  Изображение карточки.
+  Фотографии моделей вертикальные (пропорция около 6:7), поэтому блок
+  имеет ту же пропорцию: изображение заполняет его целиком — без обрезки
+  модели и без пустых полей по бокам.
+*/
 .product-card__image {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 6 / 7;
   object-fit: cover;
   transition: transform 0.25s;
 }
@@ -486,10 +492,15 @@ footer p {
 
 /*
   Обёртка изображения нужна там, где бейдж лежит поверх картинки.
+  Тёмный фон виден лишь на время загрузки фотографии, поэтому совпадает
+  с общим фоном карточек.
 */
 .product-card__image-wrapper {
   position: relative;
   width: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  background-color: #202020;
 }
 
 .product-card__image-wrapper .product-card__image {
@@ -887,9 +898,8 @@ footer p {
 }
 
 #popular .product-card__image {
-  aspect-ratio: 4 / 3;
-  padding: 0.5rem;
-  object-fit: contain;
+  aspect-ratio: 6 / 7;
+  object-fit: cover;
 }
 
 #popular .product-card__category {
@@ -1127,9 +1137,15 @@ footer p {
   transform: translateY(-3px);
 }
 
+/*
+  height: auto обязателен: у изображений есть атрибуты width и height,
+  и без этого правила браузер берёт height как фактическую высоту,
+  игнорируя пропорцию из aspect-ratio.
+*/
 .event-card__poster {
   display: block;
   width: 100%;
+  height: auto;
   aspect-ratio: 3 / 4;
   object-fit: cover;
   background-color: #202020;
@@ -1538,10 +1554,14 @@ main > .section p {
   border-radius: var(--radius-lg);
 }
 
+/*
+  height: auto обязателен: атрибуты width и height задают пропорции,
+  но без этого правила браузер использует height как фактическую высоту.
+*/
 .product-gallery > img {
   display: block;
   width: 100%;
-  height: 100%;
+  height: auto;
   max-height: 560px;
   object-fit: contain;
   border-radius: var(--radius-md);
