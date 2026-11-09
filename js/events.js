@@ -4,16 +4,32 @@ const eventsPrev = document.querySelector("#events-prev");
 const eventsNext = document.querySelector("#events-next");
 
 if (eventsViewport && eventsTrack && eventsPrev && eventsNext) {
-    function updateEventsArrows() {
-    const maxScroll =
-        eventsViewport.scrollWidth - eventsViewport.clientWidth;
+  /*
+    Лента имеет внутренние отступы по бокам, поэтому scrollLeft в крайнем
+    левом положении равен не нулю, а величине отступа. Учитываем это,
+    иначе стрелка «назад» остаётся активной в самом начале.
+  */
+  function getScrollBounds() {
+    const styles = getComputedStyle(eventsViewport);
+    const paddingLeft = parseFloat(styles.paddingLeft) || 0;
+    const paddingRight = parseFloat(styles.paddingRight) || 0;
 
-    const hasOverflow = maxScroll > 1;
+    const maxScroll = eventsViewport.scrollWidth - eventsViewport.clientWidth;
+    const minScroll = paddingLeft;
+    // Правый предел: докуда реально можно доехать при текущем содержимом
+    const maxScrollLeft = Math.max(minScroll, maxScroll);
 
-    eventsPrev.disabled = !hasOverflow || eventsViewport.scrollLeft <= 1;
-    eventsNext.disabled =
-        !hasOverflow || eventsViewport.scrollLeft >= maxScroll - 1;
-    }
+    return { minScroll, maxScrollLeft, paddingRight };
+  }
+
+  function updateEventsArrows() {
+    const { minScroll, maxScrollLeft } = getScrollBounds();
+    const hasOverflow = maxScrollLeft - minScroll > 1;
+    const pos = eventsViewport.scrollLeft;
+
+    eventsPrev.disabled = !hasOverflow || pos <= minScroll + 1;
+    eventsNext.disabled = !hasOverflow || pos >= maxScrollLeft - 1;
+  }
 
   function scrollEvents(direction) {
     const firstCard = eventsTrack.querySelector(".event-card");

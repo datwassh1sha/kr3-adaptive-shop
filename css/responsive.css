@@ -1,0 +1,481 @@
+/* ==========================================================================
+   Hot Wheels Deals — адаптивные стили
+   --------------------------------------------------------------------------
+   Файл подключается после style.css и содержит только медиазапросы.
+   Базовые (настольные) стили описаны в css/style.css.
+
+   Принцип: этот файл ничего не переопределяет «на всякий случай» —
+   каждое правило включается на своей ширине и меняет раскладку одного блока.
+
+   --------------------------------------------------------------------------
+   Шкала контрольных точек (брейкпоинтов)
+   --------------------------------------------------------------------------
+     > 1199px   настольный компьютер      базовые стили из style.css
+     ≤ 1199px   ноутбук                   узкая боковая колонка фильтров
+     ≤  991px   планшет                   двухколоночные блоки в одну колонку
+     ≤  767px   большой телефон           одноколоночная раскладка страниц
+     ≤  575px   телефон                   сетки в одну колонку, крупные кнопки
+     ≤  399px   маленький телефон         минимальные отступы
+
+   Значения выбраны по границам типовых устройств и совпадают с принятой
+   в вёрстке шкалой (1200 / 992 / 768 / 576). Запросы идут по убыванию
+   ширины: правило из более узкого запроса стоит ниже и потому побеждает.
+
+   --------------------------------------------------------------------------
+   Содержание
+   --------------------------------------------------------------------------
+     1. Ноутбук            ≤ 1199px
+     2. Планшет            ≤  991px
+     3. Большой телефон    ≤  767px
+     4. Телефон            ≤  575px
+     5. Маленький телефон  ≤  399px
+     6. Предпочтения пользователя
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. Ноутбук — ≤ 1199px
+   --------------------------------------------------------------------------
+   Каталог: боковая колонка фильтров чуть уже, чтобы списку товаров
+   осталось больше места.
+   ========================================================================== */
+
+@media (max-width: 1199px) {
+  .catalog-layout {
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+
+  .catalog-filters {
+    padding: 1.1rem;
+  }
+}
+
+
+/* ==========================================================================
+   2. Планшет — ≤ 991px
+   --------------------------------------------------------------------------
+   Двухколоночные блоки становятся одноколоночными, а сетки карточек
+   переходят с трёх колонок на две.
+   ========================================================================== */
+
+/* Баннер предзаказа: текст и изображение друг под другом */
+@media (max-width: 991px) {
+  .preorder-banner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .preorder-banner__content {
+    padding: var(--space-lg);
+  }
+
+  /* В одну колонку высота задаётся самим изображением, а не растяжением */
+  .preorder-banner__image {
+    height: auto;
+    min-height: 0;
+    max-height: 360px;
+    padding: var(--space-md);
+  }
+}
+
+/* Сетки карточек товаров: три колонки → две */
+@media (max-width: 991px) {
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Сетка отзывов: три колонки → две */
+@media (max-width: 991px) {
+  .reviews__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+}
+
+/* Лента мероприятий: три карточки → две */
+@media (max-width: 991px) {
+  .event-card {
+    flex-basis: calc((100% - 1.25rem) / 2);
+  }
+}
+
+/* Страница товара: галерея и информация друг под другом */
+@media (max-width: 991px) {
+  .product-details {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .product-gallery {
+    min-height: 320px;
+  }
+
+  .product-info {
+    padding: 1.25rem;
+  }
+}
+
+/* Главная: секции получают меньший нижний отступ */
+@media (max-width: 991px) {
+  #popular,
+  #events,
+  #reviews {
+    margin-bottom: 3.5rem;
+  }
+
+  .events__header {
+    align-items: flex-start;
+  }
+}
+
+
+/* ==========================================================================
+   3. Большой телефон — ≤ 767px
+   --------------------------------------------------------------------------
+   Страницы становятся одноколоночными: фильтры каталога встают над товарами,
+   заголовки секций — над элементами управления.
+   ========================================================================== */
+
+/* Каталог: фильтры над списком товаров */
+@media (max-width: 767px) {
+  .catalog-layout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "filters"
+      "products";
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  /* Боковая панель перестаёт «прилипать» при прокрутке */
+  .catalog-filters {
+    position: static;
+    min-width: 0;
+    padding: 1.25rem;
+  }
+
+  .catalog-products {
+    min-width: 0;
+  }
+
+  .catalog-filters h2,
+  .catalog-products > h2 {
+    margin-bottom: 1.25rem;
+  }
+}
+
+/* Заголовки страниц: компактнее */
+@media (max-width: 767px) {
+  main > .section {
+    margin-bottom: 1.5rem;
+    padding-top: 1rem;
+  }
+}
+
+/* Мероприятия: карточки по одной и заголовок над стрелками */
+@media (max-width: 767px) {
+  .events__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .events__controls {
+    padding-top: 0;
+  }
+
+  .events__arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .event-card {
+    flex-basis: 85%;
+  }
+
+  .event-card__content {
+    padding: 1rem;
+  }
+}
+
+/* Хлебные крошки: длинное название товара переносится */
+@media (max-width: 767px) {
+  .breadcrumbs__item {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+}
+
+/* Контакты: компактные карточки */
+@media (max-width: 767px) {
+  main > .section:first-of-type ul {
+    gap: 0.5rem;
+  }
+
+  main > .section:first-of-type li {
+    padding: 0.875rem 1rem;
+  }
+
+  #feedback {
+    margin-bottom: 3rem;
+    padding: 1.25rem;
+  }
+}
+
+
+/* ==========================================================================
+   4. Телефон — ≤ 575px
+   --------------------------------------------------------------------------
+   Все сетки в одну колонку, кнопки занимают всю ширину,
+   поля страницы получают внутренние отступы.
+   ========================================================================== */
+
+/* Поля страницы */
+@media (max-width: 575px) {
+  header,
+  main {
+    padding: var(--space-md);
+  }
+
+  .site-header {
+    padding: var(--space-sm) 0;
+  }
+
+  .site-nav__list {
+    gap: var(--space-xs);
+  }
+
+  .site-nav__link {
+    padding: var(--space-xs) var(--space-sm);
+    font-size: 0.95rem;
+  }
+}
+
+/* Сетки товаров: две колонки → одна */
+@media (max-width: 575px) {
+  .product-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Сетка отзывов: две колонки → одна */
+@media (max-width: 575px) {
+  .reviews__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  #reviews .review-card {
+    padding: 1.25rem;
+  }
+}
+
+/* Главная: заголовок и баннер */
+@media (max-width: 575px) {
+  #popular,
+  #events,
+  #reviews {
+    width: calc(100% - 2rem);
+    margin-bottom: 3rem;
+  }
+
+  .preorder-banner h1 {
+    font-size: 2rem;
+  }
+
+  .preorder-banner__image {
+    padding: 1rem;
+  }
+
+  .popular__catalog-link {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1.25rem;
+  }
+
+  .popular__catalog-button {
+    width: 100%;
+  }
+
+  .events__controls {
+    gap: 0.4rem;
+  }
+}
+
+/* Модальное окно предзаказа: компактнее */
+@media (max-width: 575px) {
+  .preorder-modal__header,
+  .preorder-modal__body {
+    padding: 1.25rem;
+  }
+
+  .preorder-modal__footer {
+    padding: 0 1.25rem 1.25rem;
+  }
+}
+
+/* Страница товара: кнопки в столбик, компактная таблица */
+@media (max-width: 575px) {
+  .product-gallery {
+    min-height: 0;
+    padding: 0.75rem;
+  }
+
+  .product-info {
+    padding: var(--space-md);
+  }
+
+  .product-info h1 {
+    font-size: 2rem;
+  }
+
+  .product-info__actions {
+    flex-direction: column;
+  }
+
+  .product-info__actions .button {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Таблица характеристик прокручивается по горизонтали */
+  .table-wrapper {
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .specs-table th,
+  .specs-table td {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .specs-table th {
+    width: 45%;
+  }
+}
+
+/* Корзина: кнопки на всю ширину и перестройка позиции */
+@media (max-width: 575px) {
+  #cart-summary .button,
+  #order-form button[type="submit"] {
+    width: 100%;
+  }
+
+  .cart-item {
+    grid-template-columns: 96px minmax(0, 1fr);
+    grid-template-areas:
+      "image info"
+      "quantity total";
+    align-items: start;
+    gap: var(--space-sm) var(--space-md);
+  }
+
+  .cart-item__image {
+    grid-area: image;
+  }
+
+  .cart-item__info {
+    grid-area: info;
+  }
+
+  .cart-item__quantity {
+    grid-area: quantity;
+  }
+
+  .cart-item__total {
+    grid-area: total;
+    align-items: flex-end;
+  }
+
+  .cart-page > h1 {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Контакты: кнопка на всю ширину */
+@media (max-width: 575px) {
+  #feedback .button {
+    width: 100%;
+  }
+}
+
+
+/* ==========================================================================
+   5. Маленький телефон — ≤ 399px
+   --------------------------------------------------------------------------
+   Отступы и сетки уменьшаются до минимума, чтобы ничего не вылезало
+   за пределы экрана на ширине 320–399px.
+   ========================================================================== */
+
+@media (max-width: 399px) {
+  /* Карточки «Доставка» и «Оплата» встают друг под другом */
+  .product-services {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* В ленте мероприятий видна почти целая карточка */
+  .event-card {
+    flex-basis: 92%;
+  }
+
+  .events__track {
+    gap: 0.75rem;
+  }
+
+  /* Логотип и подписи чуть меньше */
+  .site-logo {
+    font-size: 1rem;
+  }
+
+  .breadcrumbs {
+    font-size: 0.85rem;
+  }
+
+  /* Позиция корзины: уже изображение */
+  .cart-item {
+    grid-template-columns: 72px minmax(0, 1fr);
+  }
+
+  /* Модальные окна почти на всю ширину */
+  .order-dialog {
+    padding: var(--space-md);
+  }
+
+  .preorder-modal__header,
+  .preorder-modal__body {
+    padding: 1rem;
+  }
+
+  .preorder-modal__footer {
+    padding: 0 1rem 1rem;
+  }
+}
+
+
+/* ==========================================================================
+   6. Предпочтения пользователя
+   --------------------------------------------------------------------------
+   Пользователь может отключить анимацию в настройках системы.
+   В этом случае убираем все переходы и плавную прокрутку.
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Декоративные сдвиги при наведении тоже убираем */
+  #popular .product-card:hover,
+  #reviews .review-card:hover,
+  .event-card:hover,
+  .product-card:hover,
+  .popular__catalog-button:hover {
+    transform: none;
+  }
+}
