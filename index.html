@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Магазин моделей Hot Wheels Deals</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/main.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Магазин моделей Hot Wheels Deals" />
+    <meta
+      property="og:description"
+      content="Магазин моделей Hot Wheels Deals"
+    />
+    <meta
+      property="og:image"
+      content="https://username.github.io/kr1-html-css-shop/images/preview.jpg"
+    />
+  </head>
+
+  <body>
+    <header>
+      <nav class="site-header" aria-label="Основная навигация">
+        <a class="site-logo" href="index.html">
+          HOT WHEELS DEALS<span class="site-logo__accent">.</span>
+        </a>
+
+        <ul class="site-nav__list">
+          <li>
+            <a class="site-nav__link" href="index.html">Главная</a>
+          </li>
+          <li>
+            <a class="site-nav__link" href="catalog.html">Каталог</a>
+          </li>
+          <li>
+            <a class="site-nav__link" href="contacts.html">Контакты</a>
+          </li>
+          <li>
+            <a class="site-nav__link" href="order.html">
+              Мой заказ
+              <span
+                class="cart-badge"
+                id="cart-count"
+                aria-label="Количество товаров в корзине"
+                >0</span
+              >
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Баннер предзаказа -->
+      <section class="preorder-section">
+        <div class="preorder-banner">
+          <div class="preorder-banner__content">
+            <span class="preorder-banner__badge"> RLC EXCLUSIVE </span>
+
+            <h1>RLC Selections Nissan Skyline GT-R (R34)</h1>
+
+            <p class="preorder-banner__lead">
+              Красный Nissan Skyline GT-R (R34) от RLC Selections — культовая
+              JDM-легенда в коллекционном исполнении. Агрессивный силуэт,
+              узнаваемый дизайн и внимание к деталям делают эту модель настоящим
+              украшением любой полки.
+            </p>
+
+            <p class="preorder-banner__price">Цена: 10000 ₽</p>
+
+            <button
+              class="preorder-banner__button"
+              type="button"
+              id="preorder-open"
+            >
+              Предзаказать
+            </button>
+          </div>
+
+          <img
+            src="images/Nissan Skyline R34.jpg"
+            alt="RLC Nissan Skyline R34"
+            class="preorder-banner__image"
+          />
+        </div>
+      </section>
+
+      <!-- Модальное окно предзаказа -->
+      <dialog
+        class="preorder-modal"
+        id="preorder-modal"
+        aria-labelledby="preorder-modal-title"
+      >
+        <div class="preorder-modal__header">
+          <div>
+            <p class="preorder-modal__eyebrow">RLC EXCLUSIVE</p>
+            <h2 class="preorder-modal__heading" id="preorder-modal-title">
+              Предзаказ скоро откроется
+            </h2>
+          </div>
+
+          <button
+            class="preorder-modal__close"
+            type="button"
+            id="preorder-close"
+            aria-label="Закрыть"
+          >
+            &#10005;
+          </button>
+        </div>
+
+        <div class="preorder-modal__body">
+          <span class="preorder-modal__badge">COMING SOON</span>
+
+          <h3 class="preorder-modal__title">Nissan Skyline GT-R (R34)</h3>
+
+          <p class="preorder-modal__description">
+            Красная легенда JDM в эксклюзивном исполнении RLC Selections.
+            Готовь место в коллекции.
+          </p>
+
+          <div class="preorder-modal__notice">
+            <span class="preorder-modal__notice-icon">!</span>
+            <div>
+              <strong>Предзаказ скоро откроется</strong>
+              <p>
+                Следи за обновлениями, чтобы не пропустить старт.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="preorder-modal__footer">
+          <button
+            class="button button--outline"
+            type="button"
+            data-preorder-close
+          >
+            Закрыть
+          </button>
+          <button class="button" type="button" data-preorder-close>
+            Понятно, жду
+          </button>
+        </div>
+      </dialog>
+
+      <section class="section" id="popular">
+        <div class="popular__header">
+          <h2>Популярные модели <span>Hot Wheels</span></h2>
+
+          <p class="popular__intro">
+            Подборка моделей для коллекционеров и любителей автомобилей.
+          </p>
+        </div>
+
+        <div class="product-grid">
+          <!-- RWB Porsche 930 -->
+          <article class="product-card">
+            <a class="product-card__image-link" href="catalog.html">
+              <img
+                class="product-card__image"
+                src="images/RWB 930.webp"
+                alt="Модель Hot Wheels RWB Porsche 930"
+                width="400"
+                height="300"
+              />
+              <span class="product-card__badge product-card__badge--new">
+                Новинка
+              </span>
+            </a>
+
+            <p class="product-card__category">Коллекционная модель</p>
+            <h3 class="product-card__title">RWB Porsche 930</h3>
+
+            <p class="product-card__description">
+              Икона стиля, созданная мастером RWB Акирой Накаи — RWB Porsche
+              930!
+            </p>
+
+            <ul class="product-card__specs">
+              <li>Серия: Premium</li>
+              <li>Сет: Silhouettes</li>
+              <li>Год выпуска: 2025</li>
+            </ul>
+
+            <p class="product-card__price">1000 руб.</p>
+
+            <button
+              class="button product-card__button"
+              type="button"
+              data-product="RWB Porcshe 930"
+            >
+              Заказать
+            </button>
+          </article>
+
+          <!-- Porsche 917KH -->
+          <article class="product-card">
+            <a class="product-card__image-link" href="catalog.html">
+              <img
+                class="product-card__image"
+                src="images/917KH.webp"
+                alt="Модель Hot Wheels Porsche 917KH"
+                width="400"
+                height="300"
+                loading="lazy"
+              />
+              <span class="product-card__badge product-card__badge--limited">
+                Лимитка
+              </span>
+            </a>
+
+            <p class="product-card__category">Коллекционная модель</p>
+            <h3 class="product-card__title">Porsche 917KH</h3>
+
+            <p class="product-card__description">
+              Прикоснись к гоночной легенде 1960-х годов с моделью Porsche
+              917KH!
+            </p>
+
+            <ul class="product-card__specs">
+              <li>Серия: Premium</li>
+              <li>Сет: Circuit Legends</li>
+              <li>Год выпуска: 2025</li>
+            </ul>
+
+            <p class="product-card__price">1500 руб.</p>
+
+            <button
+              class="button product-card__button"
+              type="button"
+              data-product="Porcshe 917KH"
+            >
+              Заказать
+            </button>
+          </article>
+
+          <!-- Porsche Carrera GT -->
+          <article class="product-card">
+            <a class="product-card__image-link" href="catalog.html">
+              <img
+                class="product-card__image"
+                src="images/Carrera GT.webp"
+                alt="Модель Hot Wheels Porsche Carrera GT"
+                width="400"
+                height="300"
+                loading="lazy"
+              />
+              <span class="product-card__badge product-card__badge--hit">
+                Хит
+              </span>
+            </a>
+
+            <p class="product-card__category">Коллекционная модель</p>
+            <h3 class="product-card__title">Porsche Carrera GT</h3>
+
+            <p class="product-card__description">
+              Почувствуй скорость и азарт с моделью Porsche Carrera GT!
+            </p>
+
+            <ul class="product-card__specs">
+              <li>Серия: Premium</li>
+              <li>Сет: Timeless Icons</li>
+              <li>Год выпуска: 2025</li>
+            </ul>
+
+            <p class="product-card__price">2000 руб.</p>
+
+            <button
+              class="button product-card__button"
+              type="button"
+              data-product="Porcshe Carrera GT"
+            >
+              Заказать
+            </button>
+          </article>
+        </div>
+
+        <div class="popular__catalog-link">
+          <div class="popular__catalog-text">
+            <span>Ищешь что-то ещё?</span>
+            <p>Исследуй всю коллекцию и найди следующую модель.</p>
+          </div>
+
+          <a class="popular__catalog-button" href="catalog.html">
+            Смотреть весь каталог
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Мероприятия Hot Wheels в Москве -->
+      <section class="section events" id="events">
+        <div class="events__header">
+          <div>
+            <p class="events__eyebrow">КАЛЕНДАРЬ СОБЫТИЙ</p>
+            <h2>Мероприятия <span>Hot Wheels</span></h2>
+            <p class="events__intro">
+              Встречи коллекционеров, выставки моделей и автомобильные события в
+              Москве.
+            </p>
+          </div>
+
+          <div class="events__controls">
+            <button
+              class="events__arrow"
+              id="events-prev"
+              type="button"
+              aria-label="Предыдущие мероприятия"
+            >
+              &#8592;
+            </button>
+            <button
+              class="events__arrow"
+              id="events-next"
+              type="button"
+              aria-label="Следующие мероприятия"
+            >
+              &#8594;
+            </button>
+          </div>
+        </div>
+
+        <div class="events__viewport" id="events-viewport">
+          <div class="events__track" id="events-track">
+            <article class="event-card">
+              <img
+                class="event-card__poster"
+                src="images/events/17_10.jpg"
+                alt="Афиша встречи коллекционеров Hot Wheels"
+                loading="lazy"
+              />
+              <div class="event-card__content">
+                <span class="event-card__category">Встреча коллекционеров</span>
+                <h3>Hot Wheels  Meet</h3>
+                <p class="event-card__description">
+                  Общение коллекционеров, обмен моделями и знакомство с
+                  новинками.
+                </p>
+                <ul class="event-card__details">
+                  <li><span>Дата</span> 17.10.26 </li>
+                  <li><span>Время</span> 13:00 - 18:00</li>
+                  <li><span>Место</span> Москва, Автокластер 19/21</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="event-card">
+              <img
+                class="event-card__poster"
+                src="images/events/08_08.jpg"
+                alt="Афиша встречи коллекционеров Hot Wheels"
+                loading="lazy"
+              />
+              <div class="event-card__content">
+                <span class="event-card__category">Встреча коллекционеров</span>
+                <h3>Hot Wheels  Meet</h3>
+                <p class="event-card__description">
+                  Обмен моделями и презентация дисплей-кейса с LED-подсветкой
+                </p>
+                <ul class="event-card__details">
+                  <li><span>Дата</span> 08.08.26 </li>
+                  <li><span>Время</span> 13:00 - 18:00</li>
+                  <li><span>Место</span> Москва, Автокластер 19/21</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="event-card">
+              <img
+                class="event-card__poster"
+                src="images/events/13_06.jpg"
+                alt="Афиша встречи коллекционеров Hot Wheels"
+                loading="lazy"
+              />
+              <div class="event-card__content">
+                <span class="event-card__category">Встреча коллекционеров</span>
+                <h3>Hot Wheels  Meet</h3>
+                <p class="event-card__description">
+                  Общение коллекционеров, обмен моделями и знакомство с
+                  новинками.
+                </p>
+                <ul class="event-card__details">
+                  <li><span>Дата</span> 13.06.26 </li>
+                  <li><span>Время</span> 13:00 - 18:00</li>
+                  <li><span>Место</span> Москва, Автокластер 19/21</li>
+                </ul>
+              </div>
+            </article>
+            
+            <article class="event-card">
+              <img
+                class="event-card__poster"
+                src="images/events/25_04.jpg"
+                alt="Афиша встречи коллекционеров Hot Wheels"
+                loading="lazy"
+              />
+              <div class="event-card__content">
+                <span class="event-card__category">Встреча коллекционеров</span>
+                <h3>Hot Wheels  Meet</h3>
+                <p class="event-card__description">
+                  Общение коллекционеров, обмен моделями и знакомство с
+                  новинками.
+                </p>
+                <ul class="event-card__details">
+                  <li><span>Дата</span> 25.04.26 </li>
+                  <li><span>Время</span> 13:00 - 18:00</li>
+                  <li><span>Место</span> Москва, Автокластер 19/21</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="event-card">
+              <img
+                class="event-card__poster"
+                src="images/events/28_02.jpg"
+                alt="Афиша встречи коллекционеров Hot Wheels"
+                loading="lazy"
+              />
+              <div class="event-card__content">
+                <span class="event-card__category">Встреча коллекционеров</span>
+                <h3>Hot Wheels  Meet</h3>
+                <p class="event-card__description">
+                  Выставка-продажа свежих моделей Hot Wheels
+                </p>
+                <ul class="event-card__details">
+                  <li><span>Дата</span> 28.02.26 </li>
+                  <li><span>Время</span> 13:00 - 18:00</li>
+                  <li><span>Место</span> Москва, Автокластер 19/21</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reviews" id="reviews">
+        <h2>Отзывы коллекционеров</h2>
+
+        <p class="reviews__intro">
+          Мнения покупателей о моделях и качестве сервиса.
+        </p>
+
+        <div class="reviews__grid">
+          <article class="review-card">
+            <div class="review-card__header">
+              <h3>Алексей</h3>
+              <p class="review-card__rating" aria-label="Оценка: 5 из 5">
+                ★★★★★
+              </p>
+            </div>
+
+            <p class="review-card__date">12 сентября 2026</p>
+
+            <p>
+              Отличная детализация модели, качественная окраска и интересный
+              автомобиль в коллекции. Сайт пушка, от души!
+            </p>
+          </article>
+
+          <article class="review-card">
+            <div class="review-card__header">
+              <h3>Максим</h3>
+              <p class="review-card__rating" aria-label="Оценка: 4 из 5">
+                ★★★★☆
+              </p>
+            </div>
+
+            <p class="review-card__date">20 сентября 2026</p>
+
+            <p>
+              Хорошая модель за свою цену. Хотелось бы видеть больше вариантов
+              окраски.
+            </p>
+          </article>
+
+          <article class="review-card">
+            <div class="review-card__header">
+              <h3>Илья</h3>
+              <p class="review-card__rating" aria-label="Оценка: 5 из 5">
+                ★★★★★
+              </p>
+            </div>
+
+            <p class="review-card__date">25 сентября 2026</p>
+
+            <p>
+              Модель отлично смотрится на полке рядом с остальными автомобилями
+              коллекции.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contacts">
+      <p>&copy; 2026 Учебный проект. Все права защищены.</p>
+      <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+    </footer>
+
+    <dialog
+      class="order-dialog"
+      id="order-dialog"
+      aria-labelledby="order-dialog-title"
+    >
+      <h2 id="order-dialog-title">Оформление заявки</h2>
+
+      <form
+        class="order-form"
+        id="order-form"
+        action="#"
+        method="post"
+        novalidate
+      >
+        <input id="selected-product" name="selected-product" type="hidden" />
+
+        <div class="form-field">
+          <label for="order-name">Имя</label>
+          <input
+            id="order-name"
+            name="name"
+            type="text"
+            placeholder="Введите ваше имя"
+            minlength="2"
+            autocomplete="given-name"
+            required
+          />
+        </div>
+
+        <div class="form-field">
+          <label for="order-email">E-mail</label>
+          <input
+            id="order-email"
+            name="email"
+            type="email"
+            placeholder="example@mail.ru"
+            autocomplete="email"
+            required
+          />
+        </div>
+
+        <div class="form-field">
+          <label for="order-phone">Телефон</label>
+          <input
+            id="order-phone"
+            name="phone"
+            type="tel"
+            inputmode="tel"
+            placeholder="+7 (900) 000-00-00"
+            pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$"
+            required
+          />
+          <small>Формат: +7 (900) 000-00-00</small>
+        </div>
+
+        <div class="form-field">
+          <label for="order-date">Дата связи</label>
+          <input id="order-date" name="date" type="date" />
+        </div>
+
+        <div class="form-field">
+          <label for="order-topic">Тема заявки</label>
+          <select id="order-topic" name="topic" required>
+            <option value="">Выберите тему</option>
+            <option value="product">Заказ товара</option>
+            <option value="consultation">Консультация</option>
+            <option value="delivery">Доставка</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="order-comment">Комментарий</label>
+          <textarea
+            id="order-comment"
+            name="comment"
+            rows="4"
+            placeholder="Укажите дополнительную информацию"
+          ></textarea>
+        </div>
+
+        <div class="form-field form-field--checkbox">
+          <label>
+            <input
+              id="order-agreement"
+              name="agreement"
+              type="checkbox"
+              required
+            />
+            Я согласен на обработку данных
+          </label>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" id="close-order-dialog">Закрыть</button>
+          <button type="submit">Отправить заявку</button>
+        </div>
+      </form>
+    </dialog>
+
+    <p class="success-message" id="success-message" hidden>
+      Форма успешно отправлена!
+    </p>
+    <script src="js/cart-counter.js"></script>
+    <script src="js/events.js"></script>
+  </body>
+</html>

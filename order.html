@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Моя корзина — Hot Wheels Deals</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="site-header" aria-label="Основная навигация">
+        <a class="site-logo" href="index.html">
+          HOT WHEELS DEALS<span class="site-logo__accent">.</span>
+        </a>
+
+        <ul class="site-nav__list">
+          <li>
+            <a class="site-nav__link" href="index.html">Главная</a>
+          </li>
+          <li>
+            <a class="site-nav__link" href="catalog.html">Каталог</a>
+          </li>
+          <li>
+            <a class="site-nav__link" href="contacts.html">Контакты</a>
+          </li>
+          <li>
+            <a class="site-nav__link" href="order.html">
+              Мой заказ
+              <span
+                class="cart-badge"
+                id="cart-count"
+                aria-label="Количество товаров в корзине"
+                >0</span
+              >
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="cart-page">
+      <h1>Моя корзина</h1>
+
+      <div id="cart-items"></div>
+
+      <div id="cart-empty">Корзина пока пуста.</div>
+
+      <div id="cart-summary" hidden>
+        <h2>Итого: <span id="cart-total">0</span> ₽</h2>
+
+        <button class="button button--danger-outline" id="clear-cart">
+          Очистить корзину
+        </button>
+
+        <form id="order-form">
+          <h2>Оформление заказа</h2>
+
+          <div class="order-form__field">
+            <label class="order-form__label" for="customer-name">Имя</label>
+            <input
+              class="order-form__input"
+              type="text"
+              id="customer-name"
+              name="name"
+              placeholder="Введите ваше имя"
+              required
+            />
+          </div>
+
+          <div class="order-form__field">
+            <label class="order-form__label" for="customer-email">
+              Электронная почта
+            </label>
+            <input
+              class="order-form__input"
+              type="email"
+              id="customer-email"
+              name="email"
+              placeholder="example@mail.com"
+              required
+            />
+          </div>
+
+          <div class="order-form__field">
+            <label class="order-form__label" for="customer-address">
+              Адрес доставки
+            </label>
+            <textarea
+              class="order-form__input"
+              id="customer-address"
+              name="address"
+              rows="3"
+              placeholder="Город, улица, дом, квартира"
+              required
+            ></textarea>
+          </div>
+
+          <button class="button" type="submit">Подтвердить заказ</button>
+        </form>
+      </div>
+      <p id="order-message" role="status" aria-live="polite"></p>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Учебный проект. Все права защищены.</p>
+      <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+    </footer>
+
+    <script src="js/order.js"></script>
+    <script src="js/cart-counter.js"></script>
+  </body>
+</html>

@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Каталог товаров учебного интернет-магазина."
+    />
+
+    <title>Каталог товаров — Учебный интернет-магазин</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Учебный интернет-магазин" />
+    <meta
+      property="og:description"
+      content="Учебный frontend-проект интернет-магазина."
+    />
+    <meta
+      property="og:image"
+      content="https://username.github.io/kr1-html-css-shop/images/preview.jpg"
+    />
+  </head>
+
+  <body>
+    <header>
+      <nav class="site-header" aria-label="Основная навигация">
+        <a class="site-logo" href="index.html">
+          HOT WHEELS DEALS<span class="site-logo__accent">.</span>
+        </a>
+
+        <ul class="site-nav__list">
+          <li>
+            <a class="site-nav__link" href="index.html">Главная</a>
+          </li>
+          <li>
+            <a class="site-nav__link" href="catalog.html">Каталог</a>
+          </li>
+          <li>
+            <a class="site-nav__link" href="contacts.html">Контакты</a>
+          </li>
+          <li>
+            <a class="site-nav__link" href="order.html">
+              Мой заказ
+              <span
+                class="cart-badge"
+                id="cart-count"
+                aria-label="Количество товаров в корзине"
+                >0</span
+              >
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <nav class="breadcrumbs" aria-label="Навигационная цепочка">
+        <ol class="breadcrumbs__list">
+          <li class="breadcrumbs__item">
+            <a href="index.html">Главная</a>
+          </li>
+          <li class="breadcrumbs__item breadcrumbs__item--current" aria-current="page">
+            Каталог
+          </li>
+        </ol>
+      </nav>
+
+      <section class="section">
+        <h1>Каталог товаров</h1>
+        <p>
+          На этой странице можно ознакомиться с актуальным наличием
+          коллекционных моделей. Скорее паркуйте их у себя дома!
+        </p>
+      </section>
+
+      <section class="catalog-layout">
+        <aside class="catalog-filters">
+          <h2>Фильтры</h2>
+
+          <form class="filters-form" action="#" method="get">
+            <fieldset>
+              <legend>Категория</legend>
+
+              <label class="filters-form__option" for="category-all">
+                <input
+                  type="checkbox"
+                  name="category"
+                  value="all"
+                  id="category-all"
+                />
+                Все товары
+              </label>
+
+              <label class="filters-form__option" for="category-new">
+                <input
+                  type="checkbox"
+                  name="category"
+                  value="new"
+                  id="category-new"
+                />
+                Новинка
+              </label>
+
+              <label class="filters-form__option" for="category-hit">
+                <input
+                  type="checkbox"
+                  name="category"
+                  value="hit"
+                  id="category-hit"
+                />
+                Хит
+              </label>
+
+              <label class="filters-form__option" for="category-limited">
+                <input
+                  type="checkbox"
+                  name="category"
+                  value="limited"
+                  id="category-limited"
+                />
+                Лимитка
+              </label>
+            </fieldset>
+
+            <fieldset>
+              <legend>Цена, ₽</legend>
+
+              <div class="filters-form__group">
+                <label class="filters-form__label" for="price-from">От</label>
+                <input
+                  class="filters-form__input"
+                  id="price-from"
+                  name="price-from"
+                  type="number"
+                  min="0"
+                  placeholder="0"
+                />
+              </div>
+
+              <div class="filters-form__group">
+                <label class="filters-form__label" for="price-to">До</label>
+                <input
+                  class="filters-form__input"
+                  id="price-to"
+                  name="price-to"
+                  type="number"
+                  min="0"
+                  placeholder="5000"
+                />
+              </div>
+            </fieldset>
+
+            <button class="filters-form__submit" type="submit">
+              Применить фильтры
+            </button>
+          </form>
+        </aside>
+
+        <section class="catalog-products">
+          <h2>Список товаров</h2>
+
+          <div class="product-grid">
+            <!-- Карточка 1: RWB Porsche 930 -->
+            <article class="product-card">
+              <div class="product-card__image-wrapper">
+                <img
+                  class="product-card__image"
+                  src="images/RWB 930.webp"
+                  alt="Белая модель RWB Porsche 930 Hot Wheels"
+                  width="400"
+                  height="300"
+                />
+
+                <span class="product-card__badge product-card__badge--new">
+                  Новинка
+                </span>
+              </div>
+
+              <p class="product-card__category">Premium</p>
+              <h3 class="product-card__title">RWB Porsche 930</h3>
+
+              <p class="product-card__description">
+                Икона стиля, созданная мастером RWB Акирой Накаи — RWB Porsche
+                930!
+              </p>
+
+              <ul class="product-card__specs">
+                <li>Бренд: Porsche</li>
+                <li>Серия: Silhouettes</li>
+                <li>Год выпуска: 2025</li>
+              </ul>
+
+              <p class="product-card__price">1000 руб.</p>
+              <a
+                class="button button--outline product-card__link"
+                href="product.html?id=porsche-930-rwb-silhouettes"
+              >
+                Подробнее
+              </a>
+            </article>
+
+            <!-- Карточка 2: Porsche 917KH Gulf -->
+            <article class="product-card">
+              <div class="product-card__image-wrapper">
+                <img
+                  class="product-card__image"
+                  src="images/917KH.webp"
+                  alt="Porsche 917KH в гоночной ливрее Gulf"
+                  width="400"
+                  height="300"
+                />
+
+                <span class="product-card__badge product-card__badge--limited">
+                  Лимитка
+                </span>
+              </div>
+
+              <p class="product-card__category">Premium</p>
+              <h3 class="product-card__title">Porsche 917KH Gulf</h3>
+
+              <p class="product-card__description">
+                Прикоснись к гоночной легенде с моделью Porsche 917KH в
+                культовой ливрее Gulf!
+              </p>
+
+              <ul class="product-card__specs">
+                <li>Бренд: Porsche</li>
+                <li>Серия: Circuit Legends</li>
+                <li>Год выпуска: 2025</li>
+              </ul>
+
+              <p class="product-card__price">1500 руб.</p>
+              <a
+                class="button button--outline product-card__link"
+                href="product.html?id=porsche-917kh-gulf"
+              >
+                Подробнее
+              </a>
+            </article>
+
+            <!-- Карточка 3: Porsche Carrera GT -->
+            <article class="product-card">
+              <div class="product-card__image-wrapper">
+                <img
+                  class="product-card__image"
+                  src="images/Carrera GT.webp"
+                  alt="Porsche Carrera GT Hot Wheels"
+                  width="400"
+                  height="300"
+                />
+
+                <span class="product-card__badge product-card__badge--hit">
+                  Хит
+                </span>
+              </div>
+
+              <p class="product-card__category">Premium</p>
+              <h3 class="product-card__title">Porsche Carrera GT</h3>
+
+              <p class="product-card__description">
+                Почувствуй скорость и азарт с моделью Porsche Carrera GT!
+              </p>
+
+              <ul class="product-card__specs">
+                <li>Бренд: Porsche</li>
+                <li>Серия: Timeless Icons</li>
+                <li>Год выпуска: 2025</li>
+              </ul>
+
+              <p class="product-card__price">2000 руб.</p>
+              <a
+                class="button button--outline product-card__link"
+                href="product.html?id=porsche-carrera-gt"
+              >
+                Подробнее
+              </a>
+            </article>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Учебный проект. Все права защищены.</p>
+      <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+    </footer>
+
+    <script src="js/cart-counter.js"></script>
+  </body>
+</html>
